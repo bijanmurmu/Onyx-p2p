@@ -1,0 +1,14 @@
+/target/
+**/*.rs.bk
+onyx.exe
+# Test Artifacts
+test_output.log
+test_results.log
+dummy.txt
+downloaded_dummy.txt
+
+
+# NPM Artifacts
+node_modules/
+bin/
+*.tgz
