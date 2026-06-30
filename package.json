@@ -1,0 +1,29 @@
+{
+  "name": "onyx-p2p",
+  "version": "1.0.0",
+  "description": "Secure Peer-to-Peer file transfer and chat via CLI",
+  "main": "index.js",
+  "bin": {
+    "onyx-p2p": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node install.js"
+  },
+  "files": [
+    "index.js",
+    "install.js",
+    "assets/"
+  ],
+  "keywords": [
+    "p2p",
+    "chat",
+    "zero-trust",
+    "terminal",
+    "file-transfer"
+  ],
+  "author": "Orbit Ecosystem",
+  "license": "GPL-3.0-or-later",
+  "type": "commonjs",
+  "dependencies": {}
+}

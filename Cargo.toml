@@ -1,0 +1,24 @@
+[package]
+name = "onyx-p2p"
+version = "1.0.0"
+edition = "2021"
+description = "A zero-trust, perfectly forward-secret P2P terminal chat and file transfer engine."
+license = "GPL-3.0-or-later"
+
+[dependencies]
+aes-gcm = "0.10.3"
+rand = "0.8.5"
+x25519-dalek = { version = "2.0.0", features = ["static_secrets"] }
+hkdf = "0.12.4"
+sha2 = "0.10.8"
+hmac = "0.12.1"
+rustyline = "13.0.0"
+zeroize = { version = "1.7.0", features = ["zeroize_derive"] }
+colored = "2.1.0"
+hex = "0.4.3"
+ml-kem = { version = "0.3.2", features = ["getrandom"] }
+chacha20poly1305 = "0.10.1"
+kem = "0.3.0"
+rand_core = "0.10.1"
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_UI_WindowsAndMessaging", "Win32_System_Console", "Win32_Foundation"] }

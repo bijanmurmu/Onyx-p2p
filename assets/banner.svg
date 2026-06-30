@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250">
+  <defs>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00ff66" />
+      <stop offset="100%" stop-color="#0096ff" />
+    </linearGradient>
+  </defs>
+  <text x="400" y="30" font-family="Consolas, 'Courier New', monospace" font-size="20" fill="url(#neonGradient)" text-anchor="middle" font-weight="bold" xml:space="preserve">
+    <tspan x="400" dy="20"> ▒█████      ███▄    █    ▓██   ██▓   ▒██   ██▒</tspan>
+    <tspan x="400" dy="20">▒██▒  ██▒    ██ ▀█   █     ▒██  ██▒   ▒▒ █ █ ▒░</tspan>
+    <tspan x="400" dy="20">▒██░  ██▒   ▓██  ▀█ ██▒     ▒██ ██░   ░░  █   ░</tspan>
+    <tspan x="400" dy="20">▒██   ██░   ▓██▒  ▐▌██▒     ░ ▐██▓░    ░ █ █ ▒ </tspan>
+    <tspan x="400" dy="20">░ ████▓▒░   ▒██░   ▓██░     ░ ██▒▓░   ▒██▒ ▒██▒</tspan>
+    <tspan x="400" dy="20">░ ▒░▒░▒░    ░ ▒░   ▒ ▒       ██▒▒▒    ▒▒ ░ ░▓ ░</tspan>
+    <tspan x="400" dy="20">  ░ ▒ ▒░    ░ ░░   ░ ▒░    ▓██ ░▒░    ░░   ░▒ ░</tspan>
+    <tspan x="400" dy="20">░ ░ ░ ▒        ░   ░ ░     ▒ ▒ ░░      ░    ░  </tspan>
+    <tspan x="400" dy="20">    ░ ░              ░     ░ ░         ░    ░  </tspan>
+    <tspan x="400" dy="20">                           ░ ░                 </tspan>
+  </text>
+</svg>

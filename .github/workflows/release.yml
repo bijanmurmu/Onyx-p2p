@@ -1,0 +1,67 @@
+name: Onyx Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-upload:
+    name: Build and Upload Release Binaries
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            name: onyx-p2p-linux-x64
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+            name: onyx-p2p-linux-arm64
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            name: onyx-p2p-macos-x64
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            name: onyx-p2p-macos-arm64
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            name: onyx-p2p-windows-x64.exe
+          - os: windows-latest
+            target: aarch64-pc-windows-msvc
+            name: onyx-p2p-windows-arm64.exe
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install cross-compilation tools (Linux ARM64)
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+        run: sudo apt-get update && sudo apt-get install -y gcc-aarch64-linux-gnu
+      
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          target: ${{ matrix.target }}
+          
+      - name: Build Binary
+        run: |
+          if [ "${{ matrix.target }}" = "aarch64-unknown-linux-gnu" ]; then
+            export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc
+          fi
+          cargo build --release --target ${{ matrix.target }}
+        shell: bash
+      
+      - name: Rename Binary (Unix)
+        if: matrix.os != 'windows-latest'
+        run: mv target/${{ matrix.target }}/release/onyx-p2p ${{ matrix.name }}
+        
+      - name: Rename Binary (Windows)
+        if: matrix.os == 'windows-latest'
+        run: mv target/${{ matrix.target }}/release/onyx-p2p.exe ${{ matrix.name }}
+        
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ matrix.name }}
+          generate_release_notes: true
